@@ -10,13 +10,13 @@ void code_Detect(void)
 
 	   while(x<4){
 
-	 //make all rows low
+	 //reset all rows
 	   HAL_GPIO_WritePin(GPIOC, R1_Pin, GPIO_PIN_RESET);
 	   HAL_GPIO_WritePin(GPIOC, R2_Pin, GPIO_PIN_RESET);
 	   HAL_GPIO_WritePin(GPIOC, R3_Pin, GPIO_PIN_RESET);
 	   HAL_GPIO_WritePin(GPIOC, R4_Pin, GPIO_PIN_RESET);
 
-	 //make just the Row 1 high
+	 //set row 1 
 	   HAL_GPIO_WritePin(GPIOC, R1_Pin, GPIO_PIN_SET);
 
    	if(HAL_GPIO_ReadPin(GPIOB, C1_Pin) == GPIO_PIN_SET)
@@ -78,7 +78,7 @@ void code_Detect(void)
 
    	}
 
-   	/* Setting Row 2 ad High and others LOW */
+   	// set row 2 and reset other rows
    	HAL_GPIO_WritePin(GPIOC, R1_Pin, GPIO_PIN_RESET);
    	HAL_GPIO_WritePin(GPIOC, R2_Pin, GPIO_PIN_SET);
    	HAL_GPIO_WritePin(GPIOC, R3_Pin, GPIO_PIN_RESET);
@@ -140,7 +140,7 @@ void code_Detect(void)
 
    	}
 
-   	/* Setting Row 3 ad High and others LOW */
+   	// set row 3 and reset other rows
    	HAL_GPIO_WritePin(GPIOC, R1_Pin, GPIO_PIN_RESET);
    	HAL_GPIO_WritePin(GPIOC, R2_Pin, GPIO_PIN_RESET);
    	HAL_GPIO_WritePin(GPIOC, R3_Pin, GPIO_PIN_SET);
@@ -202,7 +202,7 @@ void code_Detect(void)
 
    	}
 
-   	/* Setting Row 4 ad High and others LOW */
+	//set row 4 and reset other rows
    	HAL_GPIO_WritePin(GPIOC, R1_Pin, GPIO_PIN_RESET);
    	HAL_GPIO_WritePin(GPIOC, R2_Pin, GPIO_PIN_RESET);
    	HAL_GPIO_WritePin(GPIOC, R3_Pin, GPIO_PIN_RESET);
@@ -282,13 +282,13 @@ void led_lighting_Detect(void)
 
 	   while(x<1){
 
-	 //make all rows low
+	 //reset all rows
 	   HAL_GPIO_WritePin(GPIOC, R1_Pin, GPIO_PIN_RESET);
 	   HAL_GPIO_WritePin(GPIOC, R2_Pin, GPIO_PIN_RESET);
 	   HAL_GPIO_WritePin(GPIOC, R3_Pin, GPIO_PIN_RESET);
 	   HAL_GPIO_WritePin(GPIOC, R4_Pin, GPIO_PIN_RESET);
 
-	 //make just the Row 1 high
+	 //set row 1
 	   HAL_GPIO_WritePin(GPIOC, R1_Pin, GPIO_PIN_SET);
 
    	if(HAL_GPIO_ReadPin(GPIOB, C1_Pin) == GPIO_PIN_SET)
@@ -296,7 +296,6 @@ void led_lighting_Detect(void)
    		/* 1 */
    			HAL_Delay(200);
    			x++;
-
    			if(code[0]=='x') code[0]='1';
 
    	}
@@ -309,23 +308,14 @@ void led_lighting_Detect(void)
    		/* 2 */
 			HAL_Delay(200);
    			x++;
-
    			if(code[0]=='x') code[0]='2';
 
   	}
 
-	if(HAL_GPIO_ReadPin(GPIOB, C3_Pin) == GPIO_PIN_SET)
-   	{
-   		/* 3 */
-			HAL_Delay(200);
-  			x++;
-
-   			if(code[0]=='x') code[0]='3';
-
-   	}
 
 
-   	/* Setting Row 4 ad High and others LOW */
+
+   	//set row 4 and reset other rows
    	HAL_GPIO_WritePin(GPIOC, R1_Pin, GPIO_PIN_RESET);
    	HAL_GPIO_WritePin(GPIOC, R2_Pin, GPIO_PIN_RESET);
    	HAL_GPIO_WritePin(GPIOC, R3_Pin, GPIO_PIN_RESET);
@@ -336,11 +326,7 @@ void led_lighting_Detect(void)
    		/* * */
 			HAL_Delay(200);
    			x++;
-
    			if(code[0]=='x') code[0]='*';
-   			else if(code[1]=='x') code[1]='*';
-   			else if(code[2]=='x') code[2]='*';
-   			else if(code[3]=='x') code[3]='*';
 
    	}
 
