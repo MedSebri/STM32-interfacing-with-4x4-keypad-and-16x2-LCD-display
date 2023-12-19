@@ -69,11 +69,11 @@ for(int i =0 ; i<4 ; i++) {
 
    		if(code[0]=='1' && code[1]=='2' && code[2]=='3' && code[3]=='A' )
    			 {
-   			HAL_Delay(800);
+   		    HAL_Delay(800);
 
    		    HAL_GPIO_WritePin(GPIOD, Red_led_Pin, GPIO_PIN_RESET);
 
-   			//Toggling section
+   		    //Toggling section
    		    HAL_GPIO_WritePin(GPIOD, Green_led_Pin, GPIO_PIN_SET);
    		    HAL_Delay(300);
    		    HAL_GPIO_WritePin(GPIOD,Green_led_Pin, GPIO_PIN_RESET);
@@ -84,7 +84,7 @@ for(int i =0 ; i<4 ; i++) {
    		    HAL_Delay(300);
    		    HAL_GPIO_WritePin(GPIOD, Green_led_Pin, GPIO_PIN_SET);
 
-   		    LCD_command(0x01);
+   		        LCD_command(0x01);
    			LCD_command(0x14);
    			LCD_command(0x14);
    			LCD_string((uint8_t *)"CORRECT CODE");
@@ -107,11 +107,11 @@ for(int i =0 ; i<4 ; i++) {
    	   		    HAL_GPIO_WritePin(GPIOD, Blue_led_Pin, GPIO_PIN_SET);
 
    	   		    HAL_Delay(1000);
-   	   			LCD_command(0x01);
+   	   		    LCD_command(0x01);
    	   		    LCD_command(0x1C);
    	   		    LCD_command(0x1C);
    	   		    LCD_string((uint8_t *)"ALL LEDS ON");
-   	   			HAL_Delay(2000);
+   	   		    HAL_Delay(2000);
 
    	   			LCD_command(0x01);
    	   			LCD_string((uint8_t *)"PRESS 2 TO TURN");
@@ -129,11 +129,11 @@ for(int i =0 ; i<4 ; i++) {
    	   	   		    HAL_GPIO_WritePin(GPIOD, Blue_led_Pin, GPIO_PIN_RESET);
 
    	   	   		    HAL_Delay(1000);
-   	   	   			LCD_command(0x01);
+   	   	   		    LCD_command(0x01);
    	   	   		    LCD_command(0x1C);
    	   	   		    LCD_command(0x1C);
-   	   	   			LCD_string((uint8_t *)"ALL LEDS OFF");
-   	   	   			HAL_Delay(2000);
+   	   	   		    LCD_string((uint8_t *)"ALL LEDS OFF");
+   	   	   		    HAL_Delay(2000);
 
 
    	   	   			LCD_command(0x01);
@@ -148,7 +148,7 @@ for(int i =0 ; i<4 ; i++) {
    	   	   			if(code[0]=='*') {
 
    	   	   	   			LCD_command(0x01);
-   	    	   		    LCD_command(0x1C);
+   	    	   		         `      LCD_command(0x1C);
    	   	   	   			LCD_string((uint8_t *)"LEDS TOGGLING");
 
    	   	   				for(int i=0 ; i<3000000 ; i++) {
@@ -185,7 +185,7 @@ for(int i =0 ; i<4 ; i++) {
    			LCD_string((uint8_t *)"TRY AGAIN ");
    			LCD_command(0x0C); //display on cursor off
 
-   			//Toggling section
+   		    //Toggling section
    		    HAL_GPIO_WritePin(GPIOD, Red_led_Pin, GPIO_PIN_SET);
    		    HAL_Delay(300);
    		    HAL_GPIO_WritePin(GPIOD, Red_led_Pin, GPIO_PIN_RESET);
@@ -195,10 +195,10 @@ for(int i =0 ; i<4 ; i++) {
    		    HAL_GPIO_WritePin(GPIOD, Red_led_Pin, GPIO_PIN_RESET);
    		    HAL_Delay(300);
    		    HAL_GPIO_WritePin(GPIOD, Red_led_Pin, GPIO_PIN_SET);
-   			HAL_Delay(1500);
+   		    HAL_Delay(1500);
 
 
-    		    LCD_command(0x01); //clear screen
+    		        LCD_command(0x01); //clear screen
     			LCD_command(0x1C);
     			LCD_command(0x1C);
     			LCD_string((uint8_t *)"4 DIGIT CODE");
